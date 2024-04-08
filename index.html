@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soul's Journey</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #game-container {
+      text-align: center;
+      max-width: 600px;
+      padding: 20px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin: 15px;
+      cursor: pointer;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #555;
+    }
+    h1, h2, p {
+      color: #fff;
+    }
+    img {
+      border-radius: 50%;
+      box-shadow: 0px 0px 15px 5px #000;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <h1>Soul's Journey</h1>
+    <img src="soul.png" alt="Soul the Cat" width="200">
+    <p><em> Soul chega ao mundo das almas, o ajude a encontrar a chave."O primeiro passo para a próxima vida."</em></p>
+    <button onclick="startGame()">Começar</button>
+  </div>
+
+  <script>
+    function startGame() {
+      document.getElementById("game-container").innerHTML = `
+        <h2>Escolha uma direção para Soul:</h2>
+        <button onclick="goRight()">Direita</button>
+        <button onclick="goLeft()">Esquerda</button>
+      `;
+    }
+
+    function goRight() {
+      document.getElementById("game-container").innerHTML = `
+        <p>Soul encontra um cachorro amigável chamado Fido com a pata machucada.</p>
+        <button onclick="helpFido()">Ajudar o cachorro</button>
+        <button onclick="continueWithoutHelp()">Seguir em frente sem ajudar</button>
+      `;
+    }
+
+    function goLeft() {
+      document.getElementById("game-container").innerHTML = `
+        <p>Soul se depara com o monstro de almas.</p>
+        <button onclick="fightMonster()">Enfrentar o monstro</button>
+        <button onclick="hideFromMonster()">Se proteger e se esconder</button>
+      `;
+    }
+
+    function helpFido() {
+      document.getElementById("game-container").innerHTML = `
+        <p>Fido lhe entrega a chave. Vocês dois seguem para suas novas vidas.</p>
+        <button onclick="location.reload()">Jogar novamente</button>
+      `;
+    }
+
+    function continueWithoutHelp() {
+      document.getElementById("game-container").innerHTML = `
+        <p>Soul falha e fica vagando pelo mundo das almas até o fim.</p>
+        <button onclick="location.reload()">Jogar novamente</button>
+      `;
+    }
+
+    function fightMonster() {
+      document.getElementById("game-container").innerHTML = `
+        <p>Soul falha e acaba se machucando e vaga pelo mundo das almas até o fim.</p>
+        <button onclick="location.reload()">Jogar novamente</button>
+      `;
+    }
+
+    function hideFromMonster() {
+      document.getElementById("game-container").innerHTML = `
+        <p>Soul encontra a chave em meio a uns ossos dourados e pode seguir para sua próxima vida.</p>
+        <button onclick="location.reload()">Jogar novamente</button>
+      `;
+    }
+  </script>
+</body>
+</html>
